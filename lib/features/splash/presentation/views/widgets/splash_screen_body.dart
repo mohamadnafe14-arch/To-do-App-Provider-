@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:get/route_manager.dart';
-import 'package:to_do_app/features/home/presentation/views/home_view.dart';
+import 'package:go_router/go_router.dart';
+import 'package:to_do_app/core/utils/route_pages.dart';
 import 'package:to_do_app/features/splash/presentation/views/widgets/slider_text.dart';
 
 class SplashScreenBody extends StatefulWidget {
@@ -55,11 +55,8 @@ class _SplashScreenBodyState extends State<SplashScreenBody>
 
   void navigateToHomeView() {
     Future.delayed(const Duration(seconds: 3), () {
-      Get.to(
-        () => const HomeView(),
-        transition: Transition.fade,
-        duration: Duration(milliseconds: 500),
-      );
+      // ignore: use_build_context_synchronously
+      GoRouter.of(context).push(RoutePages.homeRoute);
     });
   }
 }
