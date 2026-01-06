@@ -15,9 +15,7 @@ String _searchQuery = '';
   List<ToDoModel> get toDoList => _toDoList;
   ToDoFilter _filter = ToDoFilter.all;
   ToDoFilter get filter => _filter;
-  int getNextId() {
-    return _toDoList.length + 1;
-  }
+  
 
   ToDoProvider() {
     _update();

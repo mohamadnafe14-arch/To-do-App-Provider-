@@ -40,9 +40,19 @@ class HomeViewBody extends StatelessWidget {
           builder: (context, provider, child) {
             if (provider.filteredToDoList.isEmpty) {
               return const Center(
-                child: Text(
-                  'No results yet',
-                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Icon(Icons.task_alt, size: 64, color: Colors.grey),
+                    SizedBox(height: 12),
+                    Text(
+                      'No tasks yet',
+                      style: TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
+                  ],
                 ),
               );
             }
@@ -50,10 +60,7 @@ class HomeViewBody extends StatelessWidget {
               child: ListView.builder(
                 itemCount: provider.filteredToDoList.length,
                 itemBuilder: (context, index) {
-                  return TaskItem(
-                    provider: provider,
-                    toDoModel: provider.filteredToDoList[index],
-                  );
+                  return TaskItem(toDo: provider.filteredToDoList[index]);
                 },
               ),
             );

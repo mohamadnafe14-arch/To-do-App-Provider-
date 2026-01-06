@@ -48,14 +48,10 @@ class _AddTaskScreenBodyState extends State<AddTaskScreenBody> {
             onPressed: () {
               if (formKey.currentState!.validate()) {
                 formKey.currentState!.save();
-                final int id = Provider.of<ToDoProvider>(
-                  context,
-                  listen: false,
-                ).getNextId();
                 final toDo = ToDoModel(
+                  id: DateTime.now().millisecondsSinceEpoch.toString(),
                   title: taskTitle!,
                   isCompleted: false,
-                  id: id.toString(),
                   createdAt: DateTime.now(),
                 );
                 Provider.of<ToDoProvider>(context, listen: false).addToDo(toDo);

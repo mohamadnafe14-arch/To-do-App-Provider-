@@ -12,13 +12,11 @@ class FilterButton extends StatelessWidget {
     final isSelected = provider.filter == filter;
     return ElevatedButton(
       style: ElevatedButton.styleFrom(
-        backgroundColor: isSelected
-            ? Colors.blue
-            : Colors.grey, 
+        backgroundColor: isSelected ? Colors.blue : Colors.grey.shade300,
+        foregroundColor: isSelected ? Colors.white : Colors.black,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
       ),
-      onPressed: () {
-        provider.setFilter(filter);
-      },
+      onPressed: () => provider.setFilter(filter),
       child: Text(text),
     );
   }
