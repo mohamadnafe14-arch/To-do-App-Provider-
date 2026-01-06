@@ -32,7 +32,6 @@ class ToDoProvider extends ChangeNotifier {
   }) {
     toDo.isCompleted = isCompleted;
     toDo.title = title;
-    toDo.description = description;
     toDo.save();
     _update();
   }
